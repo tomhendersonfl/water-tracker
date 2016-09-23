@@ -217,52 +217,52 @@ Rails.application.routes.draw do
 
     get 'logins', to: 'logins#index'
 
-    resources :action_steps do
-      member do
-        put 'clear_filters', to: 'action_steps#clear_filters'
-        get 'preview', to: 'action_steps#preview'
-      end
-    end
+    # resources :action_steps do
+    #   member do
+    #     put 'clear_filters', to: 'action_steps#clear_filters'
+    #     get 'preview', to: 'action_steps#preview'
+    #   end
+    # end
 
-    resources :action_step_filters
-    resources :question_filters
-    resources :user_filters
-    resources :filters
-
-    resources :surveys do
-      member do
-        put 'score', to: 'surveys#score'
-        put 'complete', to: 'surveys#complete'
-        put 'recommend', to: 'surveys#recommend'
-      end
-    end
-
-    resources :questions do
-      member do
-        put 'publish', to: 'questions#publish'
-        put 'retire', to: 'questions#retire'
-        put 'clear_filters', to: 'questions#clear_filters'
-      end
-    end
-    resources :survey_options do
-      member do
-        put 'publish', to: 'survey_options#publish'
-        put 'retire', to: 'survey_options#retire'
-        get 'surveys', to: 'survey_options#surveys'
-      end
-    end
+    # resources :action_step_filters
+    # resources :question_filters
+    # resources :user_filters
+    # resources :filters
+    #
+    # resources :surveys do
+    #   member do
+    #     put 'score', to: 'surveys#score'
+    #     put 'complete', to: 'surveys#complete'
+    #     put 'recommend', to: 'surveys#recommend'
+    #   end
+    # end
+    #
+    # resources :questions do
+    #   member do
+    #     put 'publish', to: 'questions#publish'
+    #     put 'retire', to: 'questions#retire'
+    #     put 'clear_filters', to: 'questions#clear_filters'
+    #   end
+    # end
+    # resources :survey_options do
+    #   member do
+    #     put 'publish', to: 'survey_options#publish'
+    #     put 'retire', to: 'survey_options#retire'
+    #     get 'surveys', to: 'survey_options#surveys'
+    #   end
+    # end
 
     resources :tenants
-    resources :thrivers do
-      member do
-        put 'score',         to: 'thrivers#score'
-        put 'complete',      to: 'thrivers#complete'
-        put 'recommend',     to: 'thrivers#recommend'
-        put 'restart_survey',        to: 'thrivers#restart_survey'
-        put 'clear_recommendations', to: 'thrivers#clear_recommendations'
-        put 'clear_filters', to: 'thrivers#clear_filters'
-      end
-    end
+    # resources :thrivers do
+    #   member do
+    #     put 'score',         to: 'thrivers#score'
+    #     put 'complete',      to: 'thrivers#complete'
+    #     put 'recommend',     to: 'thrivers#recommend'
+    #     put 'restart_survey',        to: 'thrivers#restart_survey'
+    #     put 'clear_recommendations', to: 'thrivers#clear_recommendations'
+    #     put 'clear_filters', to: 'thrivers#clear_filters'
+    #   end
+    # end
 
   end
 
@@ -273,31 +273,31 @@ Rails.application.routes.draw do
   end
 
   resources :users
-  resources :user_action_steps
-  resources :notifications
+  # resources :user_action_steps
+  # resources :notifications
 
 
   # Surveys
-  get 'surveys', to: 'surveys#edit'
-  put 'surveys', to: 'surveys#update'
-  get 'surveys/retake', to: 'surveys#retake'
-  get 'surveys/acceptance', to: 'surveys#acceptance'
-  post 'surveys/accept_terms', to: 'surveys#accept_terms'
-  resources :surveys
+  # get 'surveys', to: 'surveys#edit'
+  # put 'surveys', to: 'surveys#update'
+  # get 'surveys/retake', to: 'surveys#retake'
+  # get 'surveys/acceptance', to: 'surveys#acceptance'
+  # post 'surveys/accept_terms', to: 'surveys#accept_terms'
+  # resources :surveys
 
   # Plan
-  get  'plans',                    to: 'plans#index'
-  get  'plans/get_started',        to: 'plans#get_started'
-  get  'plans/set_slot',           to: 'plans#set_slot'
-  get  'plans/clear_slot',         to: 'plans#clear_slot'
-  get  'plans/complete_day',       to: 'plans#complete_day'
-  get  'plans/start_action_step',  to: 'plans#start_action_step'
-  get  'plans/show_more',          to: 'plans#show_more'
+  # get  'plans',                    to: 'plans#index'
+  # get  'plans/get_started',        to: 'plans#get_started'
+  # get  'plans/set_slot',           to: 'plans#set_slot'
+  # get  'plans/clear_slot',         to: 'plans#clear_slot'
+  # get  'plans/complete_day',       to: 'plans#complete_day'
+  # get  'plans/start_action_step',  to: 'plans#start_action_step'
+  # get  'plans/show_more',          to: 'plans#show_more'
 
   # Support
   get 'get_started',       to: 'support#get_started'
   get 'get_help',          to: 'support#get_help'
-  get 'survey_complete',   to: 'support#survey_complete'
+  # get 'survey_complete',   to: 'support#survey_complete'
 
   # Legal
   get 'legal/privacy',       to: 'legal#privacy'
