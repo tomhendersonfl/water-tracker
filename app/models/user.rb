@@ -39,7 +39,7 @@
 #  is_throttled           :boolean          default(TRUE)
 #
 
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :trackable,
     :confirmable, :lockable, :timeoutable,
     :recoverable, :validatable,
