@@ -3,7 +3,7 @@ ActionMailer::Base.smtp_settings = {
     address:        'smtp.sendgrid.net',
     port:           '587',
     authentication: :plain,
-    # user_name: 'iTHRIVEplan',
+    # user_name: 'iTrackplan',
     # password: 'ithriveplan2016',
     # domain: 'ithriveplan.com',
     user_name:      'jihaia',

@@ -3,14 +3,8 @@ class TenantSeed < ActiveRecord::Base
 end
 
     TenantSeed.create([{
-      tenant_name: 'Cancer Navigator',
-      subdomain: 'cancercenter',
-      desktop: 'desktop.jpg',
-      login: 'login.png',
-      logo: 'logo.png'
-    }, {
-      tenant_name: 'Mission Hope',
-      subdomain: 'missionhope',
+      tenant_name: 'Water Tracker',
+      subdomain: 'app',
       desktop: 'desktop.jpg',
       login: 'login.png',
       logo: 'logo.png'

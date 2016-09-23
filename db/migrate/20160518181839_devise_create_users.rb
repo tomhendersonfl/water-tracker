@@ -43,7 +43,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :gender, limit: 10, null: true
       t.string   :time_since_diagnosis
       t.string   :age_range
-      t.string   :cancer_type
+      t.date   	 :birthdate
 
       t.string   :city, limit: 50, null: true
       t.string   :country, limit: 3, null: true

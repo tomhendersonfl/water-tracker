@@ -10,7 +10,7 @@ module TenantFeatures
 
   # Helper preceedes all processing of the action and determines the current
   # tenant. All actions are related to a tenant, even those consumer only requests.
-  # In those instances the tenant defaults to the iTHRIVE tenant.
+  # In those instances the tenant defaults to the iTrack tenant.
   def identify_tenant
 
     subdomains = request.subdomains.dup

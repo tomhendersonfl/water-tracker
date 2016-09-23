@@ -11,7 +11,7 @@
 			<div>
 				<img src="<%= @current_tenant.login %>">
 			</div>
-			<h4 class="text-left m-b-20">iTHRIVE Administration</h4>
+			<h4 class="text-left m-b-20">iTrack Administration</h4>
 			<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
       <div class="form-group">
@@ -37,7 +37,7 @@
    <% end %>
    <% end %>
    <div class="text-center m-t-10">
-    Powered by <%= image_tag 'ithrive/login.png', style: "height: 30px; margin-top: -4px; width: inherit !important; margin-bottom: inherit !important;" %>
+    Powered by <%= image_tag 'itrack/login.png', style: "height: 30px; margin-top: -4px; width: inherit !important; margin-bottom: inherit !important;" %>
   </div>
   <div class="terms" style="color: #999">
     <%= link_to 'Privacy Policy', legal_privacy_path  %> | <%= link_to 'Terms and Conditions', legal_terms_path  %> | &copy; 2016 Five to Thrive, LLC
