@@ -21,7 +21,7 @@
 #  updated_at           :datetime         not null
 #
 
-class Tenant < ActiveRecord::Base
+class Tenant < ApplicationRecord
     ## IDENTIFIER (start) ======================================================
     self.primary_key = 'subdomain'
     ## IDENTIFIER (end)
