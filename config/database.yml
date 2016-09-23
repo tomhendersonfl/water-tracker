@@ -1,13 +1,21 @@
 development:
   adapter: mysql2
   host: 127.0.0.1
-  database: thrive_development
+  database: water_tracker_development
   username: root
   password:
   encoding: utf8
 
 test:
   url: <%= ENV['DATABASE_URL'] %>
+  encoding: utf8
+
+acceptance:
+  adapter: mysql2
+  host: 127.0.0.1
+  database: water_tracker_acceptance
+  username: root
+  password:
   encoding: utf8
 
 production:
