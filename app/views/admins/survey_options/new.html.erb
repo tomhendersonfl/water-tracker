@@ -1,0 +1,25 @@
+<ol class="breadcrumb">
+    <li><%= link_to "Back to Survey Options", admins_survey_options_path %></li>
+    <li class="active">New Survey Option</li>
+</ol>
+
+<section id="content">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Create A New Survey Option
+                            <small>Survey Options represent XYZ.
+                            </small>
+                        </h2>
+                    </div>
+                    <div class="card-body card-padding">
+                        <%= render partial: 'admins/survey_options/form', locals: {survey_option: @survey_option} %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

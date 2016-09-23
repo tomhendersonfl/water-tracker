@@ -1,0 +1,2 @@
+module TenantedHelper
+end

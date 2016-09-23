@@ -1,0 +1,41 @@
+<div role="tabpanel" class="tab-pane" id="survey_results_in_percents">
+  <div class="card">
+  <div class="card-header ch-alt m-b-20">
+    <h2>Survey Results in Percentages
+      <small>View survey analysis results.</small>
+    </h2>
+
+  </div>
+
+  <div class="table-responsive">
+    <table id="grid-surveys-percents" class="table">
+      <thead>
+        <tr>
+          <th data-column-id="sequence">Sequence</th>
+          <th data-column-id="completed_on" data-converter="date">Completed On</th>
+          <th data-column-id="diet_percent">Diet Percent</th>
+          <th data-column-id="movement_percent">Movement Percent</th>
+          <th data-column-id="environment_percent">Environment Percent</th>
+          <th data-column-id="rejuvenation_percent">Rejuvenation Percent</th>
+          <th data-column-id="spirit_percent">Spirit Percent</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+
+</div>
+
+</div>
+<%= content_for :body_end do %>
+  <%= init_grid(
+                "grid-surveys-percents",
+                url: "/admins/survey_options/#{@survey_option.id}/surveys.json",
+                primaryKey: "survey_id",
+                formatters: {
+
+                },
+                handlers: {
+                  click: { fn: :inspect, url: "/surveys", identifier: 'survey_id' }
+                }
+                ) %>
+<% end %>

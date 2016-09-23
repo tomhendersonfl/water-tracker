@@ -1,0 +1,24 @@
+<div class="card-header">
+  <h2>Manage Notifications <small>Notifications appear when thrivers answer yes to particular health profile questions or when an administrator broadcasts a message.</small></h2>
+</div>
+<div class="table-responsive">
+  <table id="notifications-grid" class="table table-hover">
+    <thead>
+      <tr>
+        <th data-column-id="received">Received</th>
+        <th data-column-id="subject">Sender</th>
+        <th data-column-id="content">Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% @user.notifications.sorted.each do |notification| %>
+        <span class="col-sm-4" ><td><%= notification.received %></td></span>
+        <span><td><%= notification.sender_display %></td></span>
+        <td><%= notification.body %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

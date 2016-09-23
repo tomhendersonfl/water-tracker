@@ -1,0 +1,82 @@
+<section id="content">
+  <div class="container container-alt">
+    <div class="block-header">
+      <h2>Notifications
+        <small>Welcome to your notification center. View important messages from your Cancer Center or iThrivePlan.
+        </small>
+      </h2>
+    </div>
+
+    <div class="row wall">
+      <div class="col-md-8">
+
+        <% if @notifications.count > 0 %>
+          <% @notifications.each_with_index do |n,i| %>
+          <div class="card w-item">
+            <div class="card-header">
+              <div class="media">
+                <div class="media-body">
+                  <h2><%= n.sender_display %><small>Posted on <%= n.created_at %></small></h2>
+                  <br>
+                  <div class="card-body"><p><%= n.body %></p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        <% else %>
+        <div class="card w-item">
+            <div class="card-header">
+              <div class="media">
+                <div class="media-body">
+                  <div class="card-body"><p>You have no notifications.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="col-md-4 hidden-sm hidden-xs">
+        <div class="card">
+          <div class="card-header">
+            <h2>About me</h2>
+          </div>
+
+          <div class="card-body card-padding">
+            <%= "Member since #{@user.created_at.strftime("%B")}, #{@user.created_at.strftime("%Y")}" %>
+            <br>
+            <br>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2>Contact Information
+              <small>This information can be updated in your Profile.</small>
+            </h2>
+          </div>
+          <div class="card-body card-padding">
+            <%= "#{@user.first_name} #{@user.last_name}" %>
+            <div class="pmo-contact">
+              <ul>
+                <li></li>
+                <% unless @user.mobile_number.nil? %>
+                <li class="ng-binding"><i class="zmdi zmdi-phone"></i> <%= @user.mobile_number %></li>
+                <% end %>
+                <% unless @user.home_number.nil? %>
+                <li class="ng-binding"><i class="zmdi zmdi-phone"></i> <%= @user.home_number %></li>
+                <% end %>
+                <li class="ng-binding"><i class="zmdi zmdi-email"></i> <%= @user.email %></li>
+                <li>
+                  <i class="zmdi zmdi-pin"></i>
+                  <address class="m-b-0 ng-binding"><%= @user.time_zone %></address>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

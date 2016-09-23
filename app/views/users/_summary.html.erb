@@ -1,0 +1,36 @@
+<div class="pm-overview c-overflow" style="background: rgb(15, 134, 205);">
+  <div class="pmo-pic">
+    <div class="p-relative">
+      <img class='img-responsive' src='<%= @current_tenant.desktop.url %>' alt="">
+    </div>
+    <div class="pmo-stat bgm-tertiary">
+<!--       <h2 class="m-0 c-white"><%#= @user.user_action_steps.complete.count %></h2>
+      Action Steps Completed -->
+    </div>
+  </div>
+  <div class="pmo-block pmo-contact hidden-xs c-white">
+    <h2 class="c-white">Contact</h2>
+    <ul>
+      <li><i class="zmdi zmdi-face"></i>
+        <%= @user.first_name %>
+        <%= @user.last_name %>
+      </li>
+      <li><i class="zmdi zmdi-email"></i><%= @user.email%></li>
+    </ul>
+    <br>
+    <br>
+    <h2 class="c-white">Profile</h2>
+    <ul>
+<!--       <li><i class="fa fa-clipboard"></i>
+        Survey
+        <%#= @user.survey.complete? ? 'complete' : 'needs to be taken' %>
+      </li> -->
+      <li><i class="fa fa-sign-in"></i>
+        Joined on
+        <%= @user.created_at.strftime('%B %d') %>
+      </li>
+    </ul>
+    <br>
+    <br>
+  </div>
+</div>

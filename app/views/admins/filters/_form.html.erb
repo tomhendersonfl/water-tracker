@@ -1,0 +1,18 @@
+<%= form_for [:admins, filter], html: {id: "form-filter"} do |f| %>
+
+<div class="card-body card-padding">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <div class="fg-line">
+          <label class="">Filter</label>
+          <%= f.text_field :name, class: "form-control", placeholder: "e.g. vegetarian, smoker, immobilezed, etc..." %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= link_to (filter.new_record? ? 'Create' : 'Update'), "#", class: "btn btn-primary m-t-10 m-r-5 waves-effect", onclick: "$('#form-filter').submit()" %>
+
+</div>
+
+<% end %>

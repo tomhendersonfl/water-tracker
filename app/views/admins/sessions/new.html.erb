@@ -1,0 +1,47 @@
+  <style type="text/css">
+   .login-content {
+    background-color: #02B9DA;
+  }
+</style>
+
+<div class="login-content">
+	<!-- Login -->
+	<div class="lc-block toggled" id="l-login">
+		<div class="lcb-form">
+			<div>
+				<img src="<%= @current_tenant.login %>">
+			</div>
+			<h4 class="text-left m-b-20">iTHRIVE Administration</h4>
+			<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+      <div class="form-group">
+        <div class="fg-line">
+         <%= f.label "Email Address", class: "control-label" %>
+         <%#= f.text_field :email, autofocus: true, class: "form-control input-lg", placeholder: "e.g. peter.pan@neverland.com" %>
+         <input type="text" class="form-control input-lg" placeholder="e.g. peter.pan@neverland.com" id="admin_email" name="admin[email]">
+       </div>
+     </div>
+
+     <div class="form-group">
+      <div class="fg-line">
+       <%= f.label "Password", class: "control-label" %>
+       <input type="password" class="form-control input-lg" placeholder="your secret password" id="admin_password" name="admin[password]">
+     </div>
+   </div>
+
+   <div class="f-16 m-b-20">Forgot your password? <%= link_to "Reset", new_admin_password_path %> it now!</div>
+
+   <!-- <a href="" class="btn btn-login btn-success btn-float"><i class="zmdi zmdi-arrow-forward"></i></a> -->
+   <%= f.button(type: 'submit', class: "btn btn-login btn-warning btn-float") do %>
+   <i class="zmdi zmdi-sign-in"></i>
+   <% end %>
+   <% end %>
+   <div class="text-center m-t-10">
+    Powered by <%= image_tag 'ithrive/login.png', style: "height: 30px; margin-top: -4px; width: inherit !important; margin-bottom: inherit !important;" %>
+  </div>
+  <div class="terms" style="color: #999">
+    <%= link_to 'Privacy Policy', legal_privacy_path  %> | <%= link_to 'Terms and Conditions', legal_terms_path  %> | &copy; 2016 Five to Thrive, LLC
+  </div>
+
+
+</div>

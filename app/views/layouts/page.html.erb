@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie9"><![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- For third-generation iPad with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144-precomposed.png">
+  <!-- For iPhone with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png">
+  <!-- For first- and second-generation iPad: -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72-precomposed.png">
+  <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+  <link rel="apple-touch-icon-precomposed" href="apple-touch- icon-precomposed.png">
+  <title>iTHRIVE Plan</title>
+  <!-- CSS -->
+  <%= stylesheet_link_tag "application.css", media: "all", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <style>
+  #main {
+    padding-top: 0px !important;
+}
+  </style>
+</head>
+<body>
+  <section id="main" data-layout="layout-1">
+    <%= yield %>
+  </section>
+
+  <%= javascript_include_tag "application.js", "data-turbolinks-track" => true  %>
+  <%= yield :body_end %>
+
+  <script>
+    $(document).ready(function(){
+
+      <% if flash[:notice].present? %>
+      notify('<%= flash[:notice] %>', 'info');
+      <% end %>
+
+      <% if flash[:success].present? %>
+      notify('<%= flash[:success] %>', 'success');
+      <% end %>
+
+      <% if flash[:error].present? %>
+      notify('<%= flash[:error] %>', 'danger');
+      <% end %>
+
+    });
+
+  </script>
+</body>
+</html>

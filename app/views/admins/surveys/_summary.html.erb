@@ -1,0 +1,26 @@
+<div class="card blog-post">
+
+  <div class="card-body card-padding">
+    <h2> Survey Summary </h2>
+    <br>
+    <h4> Summary info about this survey. </h4>
+    <br>
+
+    <h3>
+      <div class="row">
+        <div class="col-md-12">
+          <p id="notice"><%= notice %></p>
+        </div>
+      </div>
+    </h3>
+    current state: <b><%= @survey.step %></b>
+    <br>
+    <br>
+
+
+    <%= link_to 'Score', "/admins/surveys/#{@survey.id}/score", class: "btn #{(@survey.complete? ? 'btn-success' : 'btn-danger')} m-t-10 m-r-5 waves-effect", method: 'put' %>
+    <% unless @survey.complete? %>
+    <%= link_to 'Complete with 5s', "/admins/surveys/#{@survey.id}/complete", class: "btn #{(@survey.complete? ? 'btn-success' : 'btn-danger')} m-t-10 m-r-5 waves-effect", method: 'put' %>
+    <% end %>
+  </div>
+</div>

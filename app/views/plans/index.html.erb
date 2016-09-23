@@ -1,0 +1,60 @@
+<%= render partial: 'plans/chooser' %>
+<section id="content">
+
+  <div class="container-fluid">
+
+      <div class="block-header">
+        <h2>M<span class="text-lowercase">y i</span>THRIVE P<span class="text-lowercase">lan</span></h2>
+        <ul class="actions">
+          <li class="ma-trigger" data-ma-action="sidebar-open" data-ma-target="#chat">
+            <%= link_to "Browse Action Steps".html_safe, "", class: "btn btn-primary-outline", style: "width: 180px" %>
+          </li>
+        </ul>
+      </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+
+        <% if current_user.user_action_step_in_slot(1) %>
+        <%= render partial: 'action_steps/dashlet', locals: {plan_slot: 1, user_action_step: current_user.user_action_step_in_slot(1)} %>
+        <% else %>
+        <%= render partial: 'action_steps/empty', locals: {plan_slot: 1} %>
+        <% end %>
+
+      </div>
+      <div class="col-sm-6">
+
+        <% if current_user.user_action_step_in_slot(2) %>
+        <%= render partial: 'action_steps/dashlet', locals: {plan_slot: 2, user_action_step: current_user.user_action_step_in_slot(2)} %>
+        <% else %>
+        <%= render partial: 'action_steps/empty', locals: {plan_slot: 2} %>
+        <% end %>
+
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-sm-12">
+
+        <p>To create your iTHRIVE Plan, you can choose 1 or 2 Action Steps. You can choose from recommended Action Steps within Diet, Movement, Environment, Rejuvenation or Spirit. The level of the recommended Action Steps correspond to your Strengths Report.
+        </p>
+        <ul class="m-b-15">
+          <li><b>Beginner</b> (You don’t yet have much experience and are just getting started)</li>
+          <li><b>Intermediate</b> (You are well on your way but need some extra help)</li>
+          <li><b>Advanced</b> (You are a Pro, but even Pros need new challenges)</li>
+        </ul>
+        <p>
+          Each Action Step is broken up into 5 sequential daily activities, so you will only be able to work on 2 Action Steps at a time. An Action Step is like a piece of your overall wellness picture and is essential and helpful on its own. While each Action Step may not obviously connect to each other, over time, as you complete more, your wellness picture will become abundantly clear!
+        </p>
+        <p>
+         You are now ready to choose your Action Steps. Have fun!
+       </p>
+
+     </div>
+
+  </div>
+  </section>
+
+  <%= yield :action_step_modals %>

@@ -5,14 +5,33 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'mysql2'
 gem 'puma'
 
-gem 'sass-rails', '~> 5.0'
+# Use SCSS for stylesheets
+gem 'sass-rails'
+gem 'therubyracer'
+gem 'less-rails'
+
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+# bundle exec rake doc:rails generates the API under doc/api.
+gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'uuidtools'
 gem 'devise'
+gem 'carrierwave-aws'
+gem 'kaminari'
+gem 'colored'
+gem 'country_select'
+gem 'activerecord-session_store'
+gem "d3-rails"
+gem 'web-console'
+
+gem 'lograge'
+gem 'logstash-event'
+
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

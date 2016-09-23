@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-header">
+    <h4>Work with the current survey.</h4>
+    current step: <p class="tag"><%= @survey.step %></p>
+  </div>
+
+  <div class="card-body card-padding">
+    <p>
+    <%= link_to 'Complete Survey', "/admins/thrivers/#{@user.id}/complete", class: "btn btn-success m-t-10 m-r-5 waves-effect #{'disabled' if @survey.complete?}", method: 'put' %><br>
+    <br>
+    <%= link_to 'Score It', "/admins/thrivers/#{@user.id}/score", class: "btn btn-primary m-t-10 m-r-5 waves-effect", method: 'put' %><br>
+    <%= link_to 'Recommend', "/admins/thrivers/#{@user.id}/recommend", class: "btn btn-primary m-t-10 m-r-5 waves-effect", method: 'put' %><br>
+    <br>
+    <%= link_to 'Clear Filters', "/admins/thrivers/#{@user.id}/clear_filters", class: "btn btn-warning m-t-10 m-r-5 waves-effect", method: 'put' %><br>
+    <%= link_to 'Clear Recommendations', "/admins/thrivers/#{@user.id}/clear_recommendations", class: "btn btn-warning m-t-10 m-r-5 waves-effect", method: 'put' %><br>
+    <br>
+    <%= link_to 'Restart Survey', "/admins/thrivers/#{@user.id}/restart_survey", class: "btn btn-danger m-t-10 m-r-5 waves-effect", method: 'put' %><br>
+    </p>
+  </div>
+
+</div>

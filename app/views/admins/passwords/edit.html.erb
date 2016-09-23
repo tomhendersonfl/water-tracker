@@ -1,0 +1,45 @@
+<style type="text/css">
+	.login-content {
+		background-color: #02B9DA;
+	}
+</style>
+
+<div class="login-content">
+	<!-- Login -->
+	<div class="lc-block toggled" id="l-login">
+		<div class="lcb-form">
+			<div>
+				<img src="<%= @current_tenant.login %>">
+			</div>
+			<h4 class="text-left m-b-20">Change Password</h4>
+			<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
+      <%= f.hidden_field :reset_password_token %>
+      <div class="form-group">
+        <div class="fg-line">
+          <%= f.label "New Password", class: "control-label" %>
+          <input type="password" class="form-control input-lg" placeholder="your secret password" id="admin_password" name="admin[password]">
+        </div>
+      </div>
+
+     <div class="form-group">
+      <div class="fg-line">
+       <%= f.label "Confirm Password", class: "control-label" %>
+       <input type="password" class="form-control input-lg" placeholder="re-enter secret password" id="admin_password_confirmation" name="admin[password_confirmation]">
+     </div>
+   </div>
+
+   <div class="f-16 m-b-20">Not needed? Return to <%= link_to "Sign in", new_admin_session_path %>!</div>
+
+   <!-- <a href="" class="btn btn-login btn-success btn-float"><i class="zmdi zmdi-arrow-forward"></i></a> -->
+   <%= f.button(type: 'submit', class: "btn btn-login btn-warning btn-float") do %>
+   <i class="zmdi zmdi-sign-in"></i>
+   <% end %>
+   <% end %>
+ </div>
+
+
+
+</div>
+
+</div>

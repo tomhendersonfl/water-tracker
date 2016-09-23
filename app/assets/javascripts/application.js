@@ -1,16 +1,38 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file. JavaScript code in this file should be added after the last require_* statement.
-//
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
-// about supported directives.
-//
-//= require jquery
+//= require bower_components/jquery/dist/jquery.min
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require jquery
+//= require bower_components/bootstrap/dist/js/bootstrap.min
+//= require bower_components/flot/jquery.flot
+//= require bower_components/flot/jquery.flot.resize
+//= require bower_components/flot.curvedlines/curvedLines
+//= require sparklines/jquery.sparkline.min
+//= require bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min
+//= require bower_components/moment/min/moment.min
+//= require bower_components/fullcalendar/dist/fullcalendar.min
+//= require bower_components/Waves/dist/waves.min
+//= require bootstrap-growl/bootstrap-growl.min
+//= require bower_components/sweetalert/dist/sweetalert.min
+//= require bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min
+//= require bower_components/nouislider/distribute/nouislider.min
+//= require readmore-js/readmore.min
+
+//= require d3
+//= require theme
+
+
+//= require bower_components/bootstrap-select/dist/js/bootstrap-select
+//= require bower_components/chosen/chosen.jquery
+//= require fileinput/fileinput.min
+//= require summernote/dist/summernote-updated.min
+//= require input-mask/input-mask.min
+//= require farbtastic/farbtastic.min
+//= require bower_components/jquery.hotkeys/jquery.hotkeys
+//= require bootgrid/jquery.bootgrid.updated.min
+//= require bower_components/autosize/dist/autosize.min
+
+
+//= require functions/bootgrid
+//= require functions/core
+//= require functions/survey
+//= require functions/strengths-report
+//= require functions/plan

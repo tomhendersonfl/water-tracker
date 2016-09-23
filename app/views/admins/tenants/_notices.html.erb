@@ -1,0 +1,32 @@
+
+<h4 class="m-b-20">Legal Notices</h4>
+
+<%= form_for [:admins, tenant], html: {id: "form-legal-tenant"} do |f| %>
+
+<!-- PRIVACY -->
+<div class="row m-b-15">
+  <div class="col-md-12">
+    <div>
+      <label class="m-b-15">Privacy Policy</label>
+    </div>
+    <!-- <div class="html-editor"></div> -->
+    <%= f.text_area :privacy_policy, class: 'html-editor' %>
+  </div>
+</div>
+
+<!-- TERMS OF USE -->
+<div class="row m-b-15">
+  <div class="col-md-12">
+    <div>
+      <label class="m-b-15">Terms and Conditions</label>
+    </div>
+    <!-- <div class="html-editor"></div> -->
+    <%= f.text_area :terms_and_conditions, class: 'html-editor' %>
+  </div>
+</div>
+
+<div>
+  <%= link_to 'Update', "#", class: "btn btn-primary m-t-10 m-r-5 waves-effect", onclick: "$('#form-legal-tenant').submit()" %>
+</div>
+
+<% end %>

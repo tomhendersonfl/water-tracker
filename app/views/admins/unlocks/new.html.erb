@@ -1,0 +1,37 @@
+<style type="text/css">
+.login-content {
+  background-color: #02B9DA;
+}
+</style>
+
+<div class="login-content">
+<!-- Login -->
+<div class="lc-block toggled" id="l-login">
+  <div class="lcb-form">
+    <div>
+      <img src="<%= @current_tenant.login %>">
+    </div>
+    <h4 class="text-left m-b-20">Resend Unlock Instructions</h4>
+    <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: {method: :post}) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="form-group">
+      <div class="fg-line">
+        <%= f.label "Email Address", class: "control-label" %>
+        <%#= f.text_field :email, autofocus: true, class: "form-control input-lg", placeholder: "e.g. peter.pan@neverland.com" %>
+        <input type="text" class="form-control input-lg" placeholder="e.g. peter.pan@neverland.com" id="admin_email" name="admin[email]">
+      </div>
+    </div>
+
+
+    <!-- <a href="" class="btn btn-login btn-success btn-float"><i class="zmdi zmdi-arrow-forward"></i></a> -->
+    <%= f.button(type: 'submit', class: "btn btn-login btn-warning btn-float") do %>
+    <i class="zmdi zmdi-sign-in"></i>
+    <% end %>
+    <% end %>
+  </div>
+
+
+
+</div>
+
+</div>

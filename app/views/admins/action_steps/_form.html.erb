@@ -1,0 +1,180 @@
+<%= form_for [:admins, action_step], html: {id: "form-action-step"} do |f| %>
+
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <div class="fg-line">
+        <label class="">Name</label>
+        <%= f.text_field :name, class: "form-control", placeholder: "e.g. Enhancing Compassion" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <div class="fg-line">
+        <label class="">Strategy</label>
+        <%= f.select :strategy_id, Strategy.all.collect {|p| [ p.name, p.id ] }, { :include_blank => '-- Select One --' }, { class: "selectpicker", required: true} %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row m-b-15">
+  <div class="col-md-12">
+    <div>
+      <label class="m-b-10">Level</label>
+    </div>
+    <div class="form-group">
+      <div class="radio m-b-15">
+        <label>
+          <%= f.radio_button(:level, 'beginner') %>
+          <i class="input-helper"></i>
+          Beginner
+        </label>
+      </div>
+
+      <div class="radio m-b-15">
+        <label>
+          <%= f.radio_button(:level, 'intermediate') %>
+          <i class="input-helper"></i>
+          Intermediate
+        </label>
+      </div>
+      <div class="radio m-b-15">
+        <label>
+          <%= f.radio_button(:level, 'advanced') %>
+          <i class="input-helper"></i>
+          Advanced
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Health Benefits -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group">
+      <div class="fg-line">
+        <label class="">Health Benefits</label>
+        <%= f.text_area :health_benefit, placeholder: 'separate each health benefit with a new line', class: 'html-editor' %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<div class="row m-b-15">
+  <div class="col-md-12">
+    <div>
+      <label class="m-b-15">Overview</label>
+    </div>
+    <%= f.text_area :overview, class: 'html-editor' %>
+  </div>
+</div>
+
+<!-- Week At A Glance -->
+<div class="row m-b-15">
+  <div class="col-md-12">
+    <div>
+      <label class="m-b-15">Week at a Glance</label>
+    </div>
+    <%= f.text_area :week_at_a_glance, class: 'html-editor' %>
+
+  </div>
+</div>
+
+<!-- Science -->
+<div class="row m-b-15">
+  <div class="col-md-12">
+    <div>
+      <label class="m-b-15">Science</label>
+    </div>
+    <%= f.text_area :science, class: 'html-editor' %>
+
+  </div>
+</div>
+
+<!-- Citations -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group">
+      <div class="fg-line">
+        <label class="">Citations</label>
+        <%= f.text_area :citations, placeholder: 'separate each citation with a new line', class: 'html-editor' %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row m-b-20">
+  <div class="col-md-12">
+    <div>
+      <label class="m-b-15">Image</label>
+    </div>
+
+    <div class="fileinput fileinput-<%= action_step.image.file ? 'exists' : 'new' %>" data-provides="fileinput">
+      <span class="btn btn-default btn-file m-r-10 waves-effect">
+        <span class="fileinput-new">Select file</span>
+        <span class="fileinput-exists">Change</span>
+        <input type="hidden" value="" name="">
+        <%= f.file_field :image %>
+      </span>
+      <span class="fileinput-filename"><%= action_step.image.file.filename if action_step.image.file %></span>
+        <%#= link_to "<i class='fa fa-trash p-r-10'></i>".html_safe,"/admins/#{@parent.class.name.underscore.pluralize}/#{@parent.id}/clear_filters", data: {confirm: 'Remove a z?'},  method: :put %>
+
+      <a href="#" class="close fileinput-exists" data-dismiss="fileinput">×</a>
+
+    </div>
+
+  </div>
+</div>
+
+<div class="row m-b-20">
+  <div class="col-md-12">
+    <div>
+      <label class="m-b-15">Audio</label>
+    </div>
+
+    <% if action_step.audio_message.url %>
+    <div class="m-b-10">
+      <audio controls="controls" src="<%= action_step.audio_message.url %>"></audio>
+    </div>
+    <% end %>
+
+    <div class="fileinput fileinput-<%= action_step.audio_message.file ? 'exists' : 'new' %>" data-provides="fileinput">
+      <span class="btn btn-default btn-file m-r-10 waves-effect">
+        <span class="fileinput-new">Select file</span>
+        <span class="fileinput-exists">Change</span>
+        <input type="hidden" value="" name="">
+        <%= f.file_field :audio_message %>
+      </span>
+      <span class="fileinput-filename"><%= action_step.audio_message.file.filename if action_step.audio_message.file%></span>
+      <a href="#" class="close fileinput-exists" data-dismiss="fileinput">×</a>
+
+    </div>
+
+  </div>
+</div>
+
+<div class="row m-b-20">
+  <div class="col-md-12">
+    <label class="">Published?</label>
+    <div class="checkbox">
+      <label>
+        <%= f.check_box :published %>
+        <i class="input-helper"></i>
+        Indicates the action step is published and available to be recommended
+      </label>
+    </div>
+  </div>
+</div>
+
+<%= link_to (action_step.new_record? ? 'Create' : 'Update'), "#", class: "btn btn-primary m-t-10 m-r-5 waves-effect", onclick: "$('#form-action-step').submit()" %>
+
+
+
+<% end %>

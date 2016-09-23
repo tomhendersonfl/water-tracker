@@ -1,0 +1,85 @@
+<ol class="breadcrumb">
+  <li><%= link_to "Back to Thrivers", admins_thrivers_path %></li>
+  <li class="active">Edit Thriver
+    <%= @user.full_name %></li>
+  </ol>
+
+  <section id="content">
+    <div class="container">
+
+      <div class="block-header">
+        <strong><%= @user.tenant.tenant_name %></strong>
+        <%= @user.full_name %></h2>
+        <ul class="actions">
+          <li>
+            <a href="">
+              <i class="fa fa-ban"></i>
+            </a>
+          </li>
+          <li>
+            <%= link_to "<i class='fa fa-trash'></i>".html_safe, admins_thriver_path(@user), data: {confirm: 'Are you sure?'}, method: :delete %>
+          </li>
+          <li>
+            <a href="">
+              <i class="zmdi zmdi-refresh"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <%= render partial: 'admins/thrivers/summary', locals: {user: @user} %>
+          <%= render partial: 'admins/thrivers/survey_tool' %>
+          <%= render partial: 'admins/filters/child_filters' %>
+          <%= render partial: 'admins/thrivers/levels' %>
+          <%= render partial: 'admins/thrivers/recommend_tool' %>
+        </div>
+
+        <div class="col-md-8">
+          <div class="card">
+            <div role="tabpanel">
+              <ul class="tab-nav tn-justified" role="tablist" data-tab-color="amber">
+                <li class="active">
+                  <a href="#thriver-profile" aria-controls="home11" role="tab" data-toggle="tab">Profile</a>
+                </li>
+                <li>
+                  <a href="#thriver-survey" aria-controls="thriver-survey" role="tab" data-toggle="tab">Current Survey</a>
+                </li>
+<!--                   <li>
+                    <a href="#thriver-action-steps" aria-controls="thriver-action-steps" role="tab" data-toggle="tab">Action Steps</a>
+                  </li>
+                -->                  <li>
+                <a href="#thriver-logins" aria-controls="thriver-logins" role="tab" data-toggle="tab">Login History</a>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="thriver-profile">
+                <div class="p-l-25 p-r-25">
+                  <%= render partial: 'admins/thrivers/form', locals: {user: @user} %>
+
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="thriver-survey">
+                <div class="">
+                  <%= render partial: 'admins/thrivers/survey' %>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="thriver-logins">
+                <div class="">
+                  <%= render partial: 'admins/thrivers/logins', locals: {user: @user} %>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>

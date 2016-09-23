@@ -1,0 +1,44 @@
+<style>
+  .s-profile > a {
+    background-image: url("<%= @current_tenant.desktop %>");
+  }
+</style>
+
+<aside id="sidebar" class="sidebar c-overflow">
+  <div class="s-profile toggled">
+    <a href="" data-ma-action="profile-menu-toggle">
+      <div class="sp-pic">
+        <%= image_tag "avatars/unknown.png" %>
+      </div>
+
+      <div class="sp-info">
+        Welcome <%= current_admin.full_name %>
+
+        <i class="zmdi zmdi-settings"></i>
+      </div>
+    </a>
+
+    <ul class="main-menu toggled" style="display:block;">
+      <li><%= link_to("<i class='zmdi zmdi-power'></i> Sign Out".html_safe, destroy_admin_session_path, method: :delete) %></li>
+    </ul>
+  </div>
+
+  <ul class="main-menu">
+    <li><%= link_to("<i class='zmdi zmdi-view-dashboard'></i> Dashboard".html_safe, admins_dashboard_path) %></li>
+    <li><%= link_to("<i class='zmdi zmdi-accounts-alt'></i> Thrivers".html_safe, admins_thrivers_path) %></li>
+    <li><%= link_to("<i class='zmdi zmdi-format-list-bulleted'></i> Action Steps".html_safe, admins_action_steps_path) %></li>
+    <li><%= link_to("<i class='fa fa-question'></i> Questions".html_safe, admins_questions_path) %></li>
+    <li><%= link_to("<i class='fa fa-filter'></i> Filters".html_safe, admins_filters_path) %></li>
+    <li><%= link_to("<i class='zmdi zmdi-account-o'></i> System Administrators".html_safe, admins_path) %></li>
+    <li><%= link_to("<i class='fa fa-building-o'></i> Tenants".html_safe, admins_tenants_path) %></li>
+    <% if current_admin.email.end_with? 'buildit.io' %>
+    <li class="sub-menu">
+      <a href="" data-ma-action="submenu-toggle"><i class="fa fa-wrench"></i> Tools</a>
+      <ul>
+        <li><%= link_to("Console".html_safe, admins_console_path) %></li>
+        <li><%= link_to("Survey Options".html_safe, admins_survey_options_path) %></li>
+      </ul>
+    </li>
+    <% end %>
+  </ul>
+</aside>
