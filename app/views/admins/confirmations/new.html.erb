@@ -1,0 +1,40 @@
+<style type="text/css">
+  .login-content {
+    background-image: url("<%= @current_tenant.desktop.url %>") !important;
+  }
+</style>
+
+<div class="login-content">
+  <div class="lc-block toggled" id="l-login">
+    <div class="lcb-form">
+      <div>
+        <img src="<%= @current_tenant.login %>">
+      </div>
+      <h4 class="text-left m-b-20">Resend confirmation instructions</h4>
+
+      <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+      <%= devise_error_messages! %>
+      <div class="form-group">
+        <div class="fg-line">
+          <div class="field">
+            <%= f.label :email %>
+            <%= f.email_field :email, autofocus: true, class: "form-control input-lg", placeholder: "e.g. peter.pan@neverland.com", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+          </div>
+        </div>
+      </div>
+
+      <% end %>
+      <%= render "admins  /shared/links" %>
+      <br>
+      <div class="text-center m-t-10">
+        Powered by <%= image_tag 'ithrive/login.png', style: "height: 30px; margin-top: -4px; width: inherit !important; margin-bottom: inherit !important;" %>
+      </div>
+      <div class="terms" style="color: #999">
+        <%= link_to 'Privacy Policy', legal_privacy_path  %> | <%= link_to 'Terms and Conditions', legal_terms_path  %> &copy; 2016 Five to Thrive, LLC
+      </div>
+
+
+    </div>
+  </div>
+
+</div>

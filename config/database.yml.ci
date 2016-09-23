@@ -1,0 +1,17 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: thrive_development
+  username: root
+  host: 127.0.0.1
+  port: 63306
+
+production:
+  adapter: mysql2
+  host: <%= ENV['MYSQL_HOST'] %>
+  encoding: utf8
+  pool: 10
+  username: <%= ENV['MYSQL_USER'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
+  database: test
+  socket: /var/run/mysqld/mysqld.sock

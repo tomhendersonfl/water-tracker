@@ -1,0 +1,52 @@
+<section id="content">
+    <div class="container">
+
+        <div class="card">
+            <div class="card-header ch-alt m-b-20">
+                <h2>Manage Notifications
+                    <small>Review notifications received.</small>
+                </h2>
+                <ul class="actions">
+                    <li>
+                        <a href="">
+                            <i class="zmdi zmdi-refresh-alt"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="zmdi zmdi-download"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="table-responsive">
+                <table id="grid-notifications" class="table">
+                    <thead>
+                        <tr>
+                            <th data-column-id="created_at" data-order="asc">Received</th>
+                            <th data-column-id="sender">Sender</th>
+                            <th data-column-id="message">Message</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<%= content_for :body_end do %>
+<%= init_grid(
+  "grid-notifications",
+  url: "/notifications.json",
+  primaryKey: "id",
+  formatters: {
+
+  },
+  handlers: {
+      click: { fn: :inspect, url: "/notifications", identifier: 'notification_id' }
+  }
+) %>
+<% end %>

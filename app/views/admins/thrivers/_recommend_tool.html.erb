@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-header">
+  <h4>Recommended Steps (<b><%= @user.user_action_steps.count %></b>)</h4>
+      <ul>
+        <% @user.user_action_steps.each do |step| %>
+        <li><%= "#{step.action_step.strategy_name}:  [#{step.state}]  #{step.action_step.name} (#{step.action_step.level[0..2]}.) "%></li>
+        <% end %>
+      </ul>
+    </div>
+
+
+  </div>

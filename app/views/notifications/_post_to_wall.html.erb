@@ -1,0 +1,16 @@
+<%= form_for(Notification.new, url: notifications_path, method: :post) do |f| %>
+
+<div class="card w-post">
+  <div class="card-body">
+    <%= f.hidden_field :type_of, value: 'journal' %>
+    <%= f.hidden_field :state, value: 'read' %>
+    <%= f.hidden_field :sender_id, value: current_user.user_id %>
+    <%= f.hidden_field :recipient_id, value: current_user.user_id %>
+    <%= f.text_area :body, :cols => 5, :rows => 3, :class => 'wp-text', :placeholder => "Post a thought to your wall..." %>
+
+    <div class="wp-actions clearfix">
+      <%= f.submit 'Post', class: "btn btn-primary btn-sm pull-right waves-effect", style: "background: inherit" %>
+    </div>
+  </div>
+</div>
+<% end %>

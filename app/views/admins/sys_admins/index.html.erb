@@ -1,0 +1,56 @@
+<section id="content">
+    <div class="container">
+
+        <div class="card">
+            <div class="card-header ch-alt m-b-20">
+                <h2>All Thrivers
+                    <small>Review and update users of the application.</small>
+                </h2>
+                <ul class="actions">
+                    <li>
+                        <a href="">
+                            <i class="zmdi zmdi-refresh-alt"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="zmdi zmdi-download"></i>
+                        </a>
+                    </li>
+                </ul>
+                <a href="<%= new_admins_thriver_path %>" class="btn bgm-red btn-float waves-effect"><i class="zmdi zmdi-plus"></i>
+                </a>
+            </div>
+
+            <div class="table-responsive">
+                <table id="grid-thrivers" class="table">
+                    <thead>
+                        <tr>
+                            <th data-column-id="first_name">First Name</th>
+                            <th data-column-id="last_name" data-order="asc">Last Name</th>
+                            <th data-column-id="email">Email Address</th>
+                            <th data-column-id="subdomain">Tenant</th>
+                            <th data-column-id="is_admin" data-converter="yesno">Admin?</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<%= content_for :body_end do %>
+<%= init_grid(
+  "grid-thrivers",
+  url: "/admins/thrivers.json",
+  primaryKey: "user_id",
+  formatters: {
+
+  },
+  handlers: {
+      click: { fn: :inspect, url: "/admins/thrivers", identifier: 'user_id' }
+  }
+) %>
+<% end %>

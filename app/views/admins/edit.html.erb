@@ -1,0 +1,61 @@
+<ol class="breadcrumb">
+    <li><%= link_to "Back to System Administrators", admins_path %></li>
+    <li class="active">Edit System Administrator
+        <%= @admin.full_name %></li>
+</ol>
+
+<section id="content">
+    <div class="container">
+
+        <div class="block-header">
+            <h2>Edit <%= @admin.full_name %></h2>
+            <ul class="actions">
+                <li>
+                  <%#= link_to "<i class='fa fa-ban'></i>".html_safe, admin_path(@admin), title: 'Disable System Administrator', data: {confirm: 'Are you sure?'}, method: :post %>
+                </li>
+                <li>
+                  <%= link_to "<i class='fa fa-trash'></i>".html_safe, admin_path(@admin), title: 'Delete System Administrator', data: {confirm: 'Are you sure?'}, method: :delete %>
+                </li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <%= render partial: 'admins/summary', locals: {admin: @admin} %>
+            </div>
+
+            <div class="col-md-8">
+                <div class="card">
+                    <div role="tabpanel">
+                        <ul class="tab-nav tn-justified" role="tablist" data-tab-color="amber">
+                            <li class="active">
+                                <a href="#system-administrator-profile" aria-controls="system-administrator-profile" role="tab" data-toggle="tab">Profile</a>
+                            </li>
+                            <!-- <li>
+                                <a href="#system-administrator-logins" aria-controls="system-administrator-logins" role="tab" data-toggle="tab">Login History</a>
+                            </li> -->
+                        </ul>
+
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="system-administrator-profile">
+                                <div class="p-l-25 p-r-25">
+                                    <%= render partial: 'admins/form', locals: {admin: @admin} %>
+                                </div>
+                            </div>
+                            <!-- <div role="tabpanel" class="tab-pane" id="system-administrator-logins">
+                                <div class="p-l-25 p-r-25">
+                                    <%#= render partial: 'admins/tenants/appearance', locals: {tenant: @tenant} %>
+                                </div>
+                            </div> -->
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>

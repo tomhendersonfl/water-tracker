@@ -1,0 +1,64 @@
+<ol class="breadcrumb">
+    <li><%= link_to "Back to Tenants", admins_tenants_path %></li>
+    <li class="active">Edit Tenant <%= @tenant.tenant_name %></li>
+</ol>
+
+<section id="content">
+    <div class="container">
+
+      <div class="block-header">
+          <h2><%= @tenant.tenant_name %></h2>
+          <ul class="actions">
+            <li>
+              <%= link_to "<i class='fa fa-trash'></i>".html_safe, admins_tenant_path(@tenant), data: {confirm: 'Are you sure?'}, method: :delete %>
+            </li>
+              <li>
+                  <a href="">
+                      <i class="zmdi zmdi-refresh"></i>
+                  </a>
+              </li>
+          </ul>
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-12">
+          <div class="card">
+            <div role="tabpanel">
+            <ul class="tab-nav tn-justified" role="tablist" data-tab-color="amber">
+                <li class="active"><a href="#tenant-profile" aria-controls="home11" role="tab"
+                                      data-toggle="tab">Profile</a></li>
+                <li><a href="#tenant-appearance" aria-controls="tenant-appearance" role="tab" data-toggle="tab">Appearance</a>
+                </li>
+                <li><a href="#tenant-legal-notices" aria-controls="tenant-legal-notices" role="tab" data-toggle="tab">Legal Notices</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="tenant-profile">
+                  <div class="p-l-25 p-r-25">
+                  <%= render partial: 'admins/tenants/form', locals: {tenant: @tenant} %>
+                  </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="tenant-appearance">
+                  <div class="p-l-25 p-r-25">
+                  <%= render partial: 'admins/tenants/appearance', locals: {tenant: @tenant} %>
+                  </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="tenant-legal-notices">
+                  <div class="p-l-25 p-r-25">
+                  <%= render partial: 'admins/tenants/notices', locals: {tenant: @tenant} %>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+</section>

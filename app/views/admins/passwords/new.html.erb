@@ -1,0 +1,39 @@
+<style type="text/css">
+	.login-content {
+		background-color: #02B9DA;
+	}
+</style>
+
+<div class="login-content">
+	<!-- Login -->
+	<div class="lc-block toggled" id="l-login">
+		<div class="lcb-form">
+			<div>
+				<img src="<%= @current_tenant.login %>">
+			</div>
+			<h4 class="text-left m-b-20">Reset Password</h4>
+			<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= devise_error_messages! %>
+      <div class="form-group">
+        <div class="fg-line">
+          <%= f.label "Email Address", class: "control-label" %>
+          <input type="text" class="form-control input-lg" placeholder="e.g. peter.pan@neverland.com" id="admin_email" name="admin[email]">
+        </div>
+      </div>
+
+      <div class="f-16 m-b-20">Not needed? Return to <%= link_to "Sign in", new_admin_session_path %>!</div>
+
+      <div class="text-center m-t-10">
+        Powered by <%= image_tag 'ithrive/login.png', style: "height: 30px; margin-top: -4px; width: inherit !important; margin-bottom: inherit !important;" %>
+      </div>
+      <div class="terms" style="color: #999">
+        <%= link_to 'Privacy Policy', legal_privacy_path  %> | <%= link_to 'Terms and Conditions', legal_terms_path  %> | &copy; 2016 Five to Thrive, LLC
+      </div>
+
+      <!-- <a href="" class="btn btn-login btn-success btn-float"><i class="zmdi zmdi-arrow-forward"></i></a> -->
+      <%= f.button(type: 'submit', class: "btn btn-login btn-warning btn-float") do %>
+      <i class="zmdi zmdi-sign-in"></i>
+      <% end %>
+      <% end %>
+    </div>
+  </div>

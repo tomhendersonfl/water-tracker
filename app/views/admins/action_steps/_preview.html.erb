@@ -1,0 +1,71 @@
+<style>
+  .action-step-<%= action_step.id %> {
+    background-image: url("<%= action_step.image.url %>");
+    background-size: cover !important;
+    border-radius: 2px 2px 0 0;
+  }
+
+  .preview-mode {
+    padding: 15px;
+    color: #fff;
+    text-align: center;
+    background: #F44336;
+    font-weight: 600;
+    border-radius: 2px 2px 0 0;
+  }
+
+  .action-step-title {
+    font-size: 32px;
+    text-shadow: 0 1px 1px #000;
+    background: rgba(0,0,0,0.55);
+    padding: 30px 15px;
+    margin: 0;
+    color: #fff;
+  }
+</style>
+
+<div class="card-header-wrapper action-step-<%= action_step.id %> action-step" style="vertical-align: bottom; padding: 0"  >
+    <div class="preview-mode">
+      PREVIEW MODE<br>
+      <span style="font-weight: 300; font-size: 12px;">(Use to view the HTML content areas)</span>
+    </div>
+    <div style="height: 140px"></div>
+    <h2 class="action-step-title">
+      <%= action_step.name %>
+    </h2>
+
+</div>
+
+<div class="p-20">
+
+  <h4 class="p-b-10 m-t-20">Overview</h4>
+  <%= action_step.overview.html_safe %>
+
+  <h4 class="p-b-10">Week at a glance</h4>
+  <%= action_step.week_at_a_glance.html_safe %>
+
+  <h4 class="p-b-10">Science</h4>
+  <%= action_step.science.html_safe %>
+
+  <h4 class="p-b-10 p-t-10">Health Benefits</h4>
+  <%= action_step.health_benefit.html_safe %>
+
+  <h4 class="p-b-10 p-t-10">References</h4>
+  <%= action_step.citations.html_safe %>
+
+  <h4 class="p-b-10 p-t-10">Day 1 Content</h4>
+  <%= action_step.day_1.html_safe %>
+
+  <h4 class="p-b-10 p-t-10">Day 2 Content</h4>
+  <%= action_step.day_2.html_safe %>
+
+  <h4 class="p-b-10 p-t-10">Day 3 Content</h4>
+  <%= action_step.day_3.html_safe %>
+
+  <h4 class="p-b-10 p-t-10">Day 4 Content</h4>
+  <%= action_step.day_4.html_safe %>
+
+  <h4 class="p-b-10 p-t-10">Day 5 Content</h4>
+  <%= action_step.day_5.html_safe %>
+
+</div>

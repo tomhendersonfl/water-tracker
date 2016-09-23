@@ -1,0 +1,67 @@
+<ol class="breadcrumb">
+  <li><%= link_to "Back to Survey Options", admins_survey_options_path %></li>
+  <li class="active">Edit Survey Option -
+    <%= @survey_option.name %></li>
+  </ol>
+
+  <section id="content">
+    <div class="container">
+
+      <div class="block-header">
+        <h2><%= @survey_option.name %></h2>
+        <ul class="actions">
+          <li>
+            <a href="">
+              <i class="fa fa-trash"></i>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="zmdi zmdi-refresh"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-4">
+          <%= render partial: 'admins/survey_options/summary', locals: {survey_option: @survey_option} %>
+          <%= render partial: 'admins/survey_options/ability_levels' %>
+
+        </div>
+        <div class="col-md-8">
+          <div class="card">
+            <div role="tabpanel">
+              <ul class="tab-nav tn-justified" role="tablist" data-tab-color="amber">
+                <li class="active">
+                  <a href="#survey-option-profile" aria-controls="profile" role="tab" data-toggle="tab"><%= @survey_option.name %></a>
+                </li>
+                <li >
+                  <a href="#survey_results_in_decimals" aria-controls="results" role="tab" data-toggle="tab">Results in Decimals</a>
+                </li>
+                <li >
+                  <a href="#survey_results_in_percents" aria-controls="results" role="tab" data-toggle="tab">Results in Percents</a>
+                </li>
+              </ul>
+
+
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="survey-option-profile">
+                  <div class="card-body card-padding">
+                    <%= render partial: 'admins/survey_options/form', locals: {survey_option: @survey_option} %>
+                  </div>
+                </div>
+                <%= render partial: 'admins/survey_options/tabs/survey_results_in_decimals', locals: {survey_option: @survey_option} %>
+                <%= render partial: 'admins/survey_options/tabs/survey_results_in_percents', locals: {survey_option: @survey_option} %>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>

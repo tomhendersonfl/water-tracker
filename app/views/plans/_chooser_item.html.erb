@@ -1,0 +1,23 @@
+<% current_user.sorted_steps.all.each do |uas| %>
+  <% if uas.action_step.strategy_id == strategy %>
+
+    <%= link_to "#", id: "choose-action-step-#{uas.id}", class: "list-group-item media action-step-#{uas.state}-#{strategy}", data: {"user-action-step": uas.id} do %>
+      <div class="pull-left p-relative">
+        <img class="lgi-img" src="<%= uas.action_step.image.url %>" alt="">
+        <i class="<%= set_action_step_state_icon(uas) %>"></i>
+      </div>
+      <div class="media-body">
+        <div class="lgi-heading"><%= uas.action_step.name %></div>
+        <small class="tag <%= set_action_step_state_tag(uas) %>">
+            <%= set_action_step_state_label(uas) %>
+        </small>
+      </div>
+    <% end %>
+
+    <!-- generate overview modal -->
+    <% content_for :action_step_modals do %>
+    <%= render partial: 'action_steps/overview_modal', locals: {user_action_step: uas, plan_slot: nil} %>
+    <% end %>
+
+  <% end %>
+<% end %>

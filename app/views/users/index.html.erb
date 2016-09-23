@@ -1,0 +1,52 @@
+<section id="content">
+    <div class="container">
+
+        <div class="card">
+            <div class="card-header ch-alt m-b-20">
+                <h2>Manage Thrivers
+                    <small>Review and update users of the application.</small>
+                </h2>
+                <ul class="actions">
+                    <li>
+                        <a href="">
+                            <i class="zmdi zmdi-refresh-alt"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="zmdi zmdi-download"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="table-responsive">
+                <table id="grid-users" class="table">
+                    <thead>
+                        <tr>
+                            <th data-column-id="first_name">First Name</th>
+                            <th data-column-id="last_name" data-order="asc">Last Name</th>
+                            <th data-column-id="email">Email Address</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<%= content_for :body_end do %>
+<%= init_grid(
+  "grid-users",
+  url: "/users.json",
+  primaryKey: "id",
+  formatters: {
+
+  },
+  handlers: {
+      click: { fn: :inspect, url: "/users", identifier: 'user_id' }
+  }
+) %>
+<% end %>

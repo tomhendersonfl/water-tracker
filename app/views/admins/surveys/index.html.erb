@@ -1,0 +1,42 @@
+<div role="tabpanel" class="tab-pane" id="survey_results_in_decimals">
+  <div class="card">
+  <div class="card-header ch-alt m-b-20">
+    <h2>Survey Results
+      <small>View survey analysis results.</small>
+    </h2>
+
+  </div>
+
+  <div class="table-responsive">
+    <table id="grid-surveys-decimals" class="table">
+      <thead>
+        <tr>
+          <th data-column-id="user_id">User ID</th>
+          <th data-column-id="sequence">Sequence</th>
+          <th data-column-id="completed_on" data-converter="date">Completed On</th>
+          <th data-column-id="diet_score">Diet Score</th>
+          <th data-column-id="movement_score">Movement Score</th>
+          <th data-column-id="environment_score">Environment Score</th>
+          <th data-column-id="rejuvenation_score">Rejuvenation Score</th>
+          <th data-column-id="spirit_score">Spirit Score</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+
+</div>
+
+</div>
+<%= content_for :body_end do %>
+  <%= init_grid(
+                "grid-surveys-decimals",
+                url: "/admins/surveys.json",
+                primaryKey: "survey_id",
+                formatters: {
+
+                },
+                handlers: {
+                  click: { fn: :inspect, url: "/admins/surveys", identifier: 'survey_id' }
+                }
+                ) %>
+<% end %>

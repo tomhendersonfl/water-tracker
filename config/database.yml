@@ -1,33 +1,17 @@
-# SQLite version 3.x
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
-#
-default: &default
+development:
   adapter: mysql2
   host: 127.0.0.1
-  # pool: 5
-  # timeout: 5000
+  database: thrive_development
+  username: root
+  password:
   encoding: utf8
 
-development:
-  <<: *default
-  database: water_tracker_development
-  username: root
-  password:
-
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
-  <<: *default
-  # url: <=% ENV['DATABASE_URL'] %>
-  database: water_tracker_test
-  username: root
-  password:
+  url: <%= ENV['DATABASE_URL'] %>
+  encoding: utf8
 
 production:
-  <<: *default
-  # url: <=% ENV['DATABASE_URL'] %>
-  database: water_tracker_production
+  url: <%= ENV['DATABASE_URL'] %>
+  database: db
+  sslcipher: 'DHE-RSA-AES256-SHA'
+  encoding: utf8

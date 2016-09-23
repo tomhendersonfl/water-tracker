@@ -1,0 +1,34 @@
+<style>
+    .profile-view .pv-header {
+        background-image: url("<%#= user.tenant.desktop.url %>");
+    }
+
+</style>
+
+<div class="card profile-view">
+    <div class="pv-header">
+        <img src="<%= asset_path('avatars/unknown.png') %>" class="pv-main" alt="">
+    </div>
+
+    <div class="pv-body">
+        <h2><%= admin.full_name %></h2>
+        <small>
+        </small>
+
+        <ul class="pv-contact f-15">
+            <li>
+                <i class="fa fa-map-marker"></i>
+                <%= (admin.city.nil? ? 'Unknown' : admin.city) %></li>
+            <li>
+                <i class="fa fa-mobile"></i>
+                <%= (admin.mobile_number.nil? ? 'Unknown' : admin.mobile_number) %>
+                </li>
+        </ul>
+
+        <ul class="pv-follow">
+            <li><%= admin.email %></li>
+        </ul>
+
+        <%#= link_to 'Reset Password', reset_password_admin_path(admin), class: 'btn btn-warning', method: :post %>
+    </div>
+</div>

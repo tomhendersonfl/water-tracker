@@ -1,0 +1,42 @@
+<style type="text/css">
+	.login-content {
+		background-image: url("<%= @current_tenant.desktop.url %>") !important;
+	}
+</style>
+
+<div class="login-content">
+	<!-- Login -->
+	<div class="lc-block toggled" id="l-login">
+		<div class="lcb-form">
+			<div>
+				<img src="<%= @current_tenant.login %>">
+			</div>
+			<h4 class="text-left m-b-20">Resend Unlock Instructions</h4>
+			<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+			<%= devise_error_messages! %>
+			<div class="form-group">
+				<div class="fg-line">
+					<%= f.label "Email Address", class: "control-label" %>
+					<input type="text" class="form-control input-lg" placeholder="e.g. peter.pan@neverland.com" id="user_email" name="user[email]">
+				</div>
+			</div>
+
+      <div class="f-16 m-b-20">Not needed? Return to <%= link_to "Sign in", new_user_session_path %>!</div>
+
+			<div class="terms" style="color: #999">
+				Privacy Policy | Terms and Conditions
+			</div>
+
+
+			<!-- <a href="" class="btn btn-login btn-success btn-float"><i class="zmdi zmdi-arrow-forward"></i></a> -->
+			<%= f.button(type: 'submit', class: "btn btn-login btn-warning btn-float") do %>
+			<i class="zmdi zmdi-sign-in"></i>
+			<% end %>
+			<% end %>
+		</div>
+
+
+
+	</div>
+
+</div>

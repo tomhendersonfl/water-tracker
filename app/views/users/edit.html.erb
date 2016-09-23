@@ -1,0 +1,34 @@
+<section id="content">
+  <div class="card" id="profile-main">
+    <%= render partial: "users/summary" %>
+
+    <div class="pm-body clearfix">
+      <ul id="user-tabs" class="tab-nav tn-justified" role="tablist" data-tab-color="amber">
+        <li role="presentation" class="active">
+          <a class="col-sx-2" href="#tab-profile" aria-controls="tab-1" role="tab" data-toggle="tab">
+            Profile
+          </a>
+        </li>
+        <li role="presentation">
+          <a class="col-sx-2" href="#tab-health" aria-controls="tab-1" role="tab" data-toggle="tab">
+            Health Attributes
+          </a>
+        </li>
+        <li role="presentation">
+          <a class="col-sx-2" href="#tab-strengths" aria-controls="tab-1" role="tab" data-toggle="tab">
+            Strengths
+          </a>
+        </li>
+      </ul>
+      <div class="card-body card-padding">
+
+        <div class="tab-content" style="min-height: 600px; ">
+          <div role="tabpanel" class="tab-pane animated fadeIn active" id="tab-profile"><%#= render partial: "users/profile" %></div>
+          <div role="tabpanel" class="tab-pane animated fadeIn" id="tab-health"><%#= render partial: "users/health", locals: { section: 'health' } %></div>
+          <div role="tabpanel" class="tab-pane animated fadeIn" id="tab-strengths"><%#= render partial: "users/strength", locals: { section: 'strength' } %></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

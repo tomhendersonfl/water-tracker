@@ -1,0 +1,196 @@
+<section id="content">
+  <div class="container container-alt">
+    <div class="block-header">
+      <h2>Wall
+        <small>Welcome to your wall.  View notifications and post your thoughts.  Everything here is completely private.
+        </small>
+      </h2>
+
+      <ul class="actions">
+        <li>
+          <a href="">
+            <i class="zmdi zmdi-trending-up"></i>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <i class="zmdi zmdi-check-all"></i>
+          </a>
+        </li>
+        <li class="dropdown">
+          <a href="">
+            <i class="zmdi zmdi-more-vert"></i>
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li>
+              <a href="">Refresh</a>
+            </li>
+            <li>
+              <a href="">Manage Widgets</a>
+            </li>
+            <li>
+              <a href="">Widgets Settings</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="row wall">
+      <div class="col-md-8">
+
+       <%= render partial: 'notifications/post_to_wall' %>
+
+       <% @notifications.each_with_index do |n,i| %>
+       <div class="card w-item">
+        <div class="card-header">
+          <div class="media">
+            <div class="pull-left">
+              <div class="sp-pic">
+
+<!--             <% if n.journal? %>
+                <%=  image_tag @user.avatar %>
+                <% else %>
+                <%=  image_tag @user.admin_avatar %>
+                <% end %>
+ -->              </div>
+            </div>
+
+            <div class="media-body">
+              <h2><%= n.sender_display %>
+                <small>Posted on <%= n.created_at %></small>
+              </h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body card-padding">
+          <p><%= n.body %></p>
+
+<!--             <div class="wi-preview lightbox clearfix">
+              <div class="wip-item" data-src="img/headers/4.png" style="background-image: url(img/headers/4.png);">
+                <div class="lightbox-item"></div>
+              </div>
+            </div>
+          -->
+            <!-- <div class="wi-stats clearfix">
+              <div class="wis-numbers">
+                <span><i class="zmdi zmdi-comments"></i> 36</span>
+                <span class="active"><i class="zmdi zmdi-favorite"></i> 220</span>
+              </div>
+
+              <div class="wis-commentors">
+                <%= image_tag 'profile-pics/1.jpg' %><a href=""><img src="img/profile-pics/1.jpg" alt=""></a>
+                <%= image_tag 'profile-pics/2.jpg' %><a href=""><img src="img/profile-pics/2.jpg" alt=""></a>
+                <%= image_tag 'profile-pics/3.jpg' %><a href=""><img src="img/profile-pics/3.jpg" alt=""></a>
+                <%= image_tag 'profile-pics/5.jpg' %><a href=""><img src="img/profile-pics/5.jpg" alt=""></a>
+              </div>
+            </div> -->
+          </div>
+
+          <div class="wi-comments">
+            <% if i == 0 %>
+            <!-- Comment Listing -->
+            <div class="list-group">
+              <div class="list-group-item media">
+                <a href="" class="pull-left">
+                  <%=  image_tag 'profile-pics/5.jpg' %>
+                </a>
+
+                <div class="media-body">
+                  <a href="" class="lgi-heading">Sally Comentator <small class="c-gray m-l-10">3 mins ago...</small></a>
+                  <small class="lgi-text">Coming soon, the ability to comment on a post.</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Comment form -->
+            <div class="wic-form">
+              <textarea placeholder="Coming Soon..." data-ma-action="wall-comment-open"></textarea><grammarly-btn><div style="z-index: 2; opacity: 1; transform: translate(624.656px, 690.328px);" class="_9b5ef6-textarea_btn _9b5ef6-not_focused" data-grammarly-reactid=".3"><div class="_9b5ef6-transform_wrap" data-grammarly-reactid=".3.0"><div title="Protected by Grammarly" class="_9b5ef6-status" data-grammarly-reactid=".3.0.0">&nbsp;</div></div></div></grammarly-btn>
+
+              <div class="wicf-actions text-right">
+                <button class="btn btn-sm btn-link waves-effect" data-ma-action="wall-comment-close">Cancel</button>
+                <button class="btn btn-sm btn-primary waves-effect">Post</button>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+
+      <div class="col-md-4 hidden-sm hidden-xs">
+        <div class="card">
+          <div class="card-header">
+            <h2>About me</h2>
+          </div>
+
+          <div class="card-body card-padding">
+            <%= "Member since #{@user.created_at.strftime("%B")}, #{@user.created_at.strftime("%Y")}" %>
+            <br>
+            <br>
+            <a data-ui-sref="pages.profile.profile-about">
+              <small>More Coming Soon...</small>
+            </a>
+          </div>
+        </div>
+
+
+
+        <div class="card">
+          <div class="card-header">
+            <h2>Recent Comments
+              <small>See what others are saying...</small>
+            </h2>
+          </div>
+
+          <div class="list-group">
+            <a class="list-group-item media" href="">
+              <div class="pull-left">
+                <%= image_tag 'profile-pics/1.jpg' %>
+              </div>
+              <div class="media-body">
+                <div class="lgi-heading">Sally Survivor</div>
+                <small class="lgi-text">You can do it!</small>
+              </div>
+            </a>
+
+            <a class="view-more" href="">More Details ...</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2>Contact Information
+              <small>Fusce eget dolor id justo luctus commodo vel pharetra nisi. Donec velit
+                libero
+              </small>
+            </h2>
+          </div>
+          <div class="card-body card-padding">
+            <div class="pmo-contact">
+              <ul>
+                <li class="ng-binding"><i class="zmdi zmdi-phone"></i> <%= @user.mobile_number %></li>
+                <li class="ng-binding"><i class="zmdi zmdi-phone"></i> <%= @user.home_number %></li>
+                <li class="ng-binding"><i class="zmdi zmdi-email"></i> <%= @user.email %></li>
+                <li class="ng-binding"><i class="zmdi zmdi-facebook-box"></i>
+                  <%= "#{@user.first_name} #{@user.last_name}" %>
+                </li>
+                <li>
+                  <i class="zmdi zmdi-pin"></i>
+                  <address class="m-b-0 ng-binding">
+                   <%= @user.time_zone %>
+                 </address>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+   </div>
+ </section>

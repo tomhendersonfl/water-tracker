@@ -1,0 +1,58 @@
+<ol class="breadcrumb">
+  <li><%= link_to "Back to Questions", admins_questions_path %></li>
+  <li class="active">Edit Question -
+    <%= @question.name %></li>
+  </ol>
+
+  <section id="content">
+    <div class="container">
+
+      <div class="block-header">
+        <h2><%= @question.name %></h2>
+        <ul class="actions">
+          <li>
+            <a href="">
+              <i class="fa fa-trash"></i>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="zmdi zmdi-refresh"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-4">
+          <%= render partial: 'admins/questions/state', locals: {question: @question} %>
+          <%= render partial: 'admins/filters/child_filters' %>
+          <%= render partial: 'admins/questions/poll' , locals: {question: @question} %>
+        </div>
+        <div class="col-md-8">
+          <div class="card">
+            <div role="tabpanel">
+              <ul class="tab-nav tn-justified" role="tablist" data-tab-color="amber">
+                <li class="active">
+                  <a href="#question-profile" aria-controls="home11" role="tab" data-toggle="tab">Question</a>
+                </li>
+              </li>
+
+            </ul>
+
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="question-profile">
+                <%= render partial: 'admins/questions/form', locals: {question: @question} %>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>

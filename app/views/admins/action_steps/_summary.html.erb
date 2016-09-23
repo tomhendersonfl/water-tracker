@@ -1,0 +1,25 @@
+<div class="card blog-post">
+    <img src="<%= action_step.image.url %>" class="img-responsive" alt="">
+
+    <div class="card-header" href="">
+        <h2><%= action_step.name %></h2>
+    </div>
+
+    <div class="card-body card-padding">
+        <div class="readmore">
+        <%= action_step.overview.html_safe %>
+        </div>
+    </div>
+</div>
+
+
+<% content_for :body_end do %>
+<script>
+$(function() {
+  $('.readmore').readmore({speed: 75,
+    collapsedHeight: 70,
+    heightMargin: 50,
+    lessLink: '<a href="#">Read less</a>'});
+});
+</script>
+<% end %>

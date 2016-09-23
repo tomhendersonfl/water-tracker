@@ -1,0 +1,25 @@
+<ol class="breadcrumb">
+    <li><%= link_to "Back to Thrivers", admins_thrivers_path %></li>
+    <li class="active">New Thriver</li>
+</ol>
+
+<section id="content">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Create A New Thriver
+                            <small>Thrivers are end users of iTHRIVE Plan and are affiliated to a tenant.
+                            </small>
+                        </h2>
+                    </div>
+                    <div class="card-body card-padding">
+                        <%= render partial: 'admins/thrivers/form', locals: {user: @user} %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

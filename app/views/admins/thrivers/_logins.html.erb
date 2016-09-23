@@ -1,0 +1,21 @@
+<div class="table-responsive">
+  <table id="grid-thrivers" class="table">
+    <thead>
+      <tr>
+        <th data-column-id="attempted_at" data-order="desc">Attempted At</th>
+        <th data-column-id="was_successful" >Was Successful</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+
+<%= content_for :body_end do %>
+<%= init_grid(
+              "grid-thrivers",
+              url: "/admins/logins.json?user_id=#{user.user_id}",
+              primaryKey: "user_id",
+              formatters: {
+
+              }
+              ) %>
+              <% end %>

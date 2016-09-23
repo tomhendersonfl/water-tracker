@@ -1,0 +1,47 @@
+<div class="card">
+    <div class="card-header">
+        <h2>Survey Option Filters
+            <small>Add or remove filters associated to this Survey Option.</small>
+        </h2>
+
+        <ul class="actions">
+            <li class="dropdown">
+                <a href="" data-toggle="dropdown" aria-expanded="false">
+                    <i class="zmdi zmdi-more-vert"></i>
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li>
+                        <a href="">Delete All</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card-body card-padding">
+        <div id="action-step-filters">
+
+        </div>
+        <hr>
+        <div id="action-step-filter-form">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="form-group">
+                      <div class="fg-line">
+                          <label class="">Select Filter</label>
+                          <%= select_tag :filter_id, options_for_select([ "Filter 1", "Filter 2" ], ""), class: "selectpicker"  %>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-12">
+                  <a class="btn btn-primary" href="">Add Filter</a>
+
+              </div>
+          </div>
+        </div>
+    </div>
+</div>
